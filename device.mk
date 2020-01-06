@@ -11,5 +11,9 @@ DEVICE_PACKAGE_OVERLAYS += \
     $(LOCAL_PATH)/overlay \
     $(LOCAL_PATH)/overlay-mokee
 
+# Boot animation
+TARGET_SCREEN_HEIGHT := 2220
+TARGET_SCREEN_WIDTH := 1080
+
 # Inherit from sdm710-common
 $(call inherit-product, device/meizu/sdm710-common/common.mk)
