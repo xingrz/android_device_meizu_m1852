@@ -110,6 +110,9 @@ vendor/etc/camera/camxoverridesettings.txt
 # Camera - firmware
 vendor/firmware/CAMERA_ICP.elf
 
+# Charger
+sbin/charger:bin/meizu_charger
+
 # Fingerprint
 vendor/bin/hw/android.hardware.biometrics.fingerprint@2.1-service
 vendor/etc/init/android.hardware.biometrics.fingerprint@2.1-service.rc
