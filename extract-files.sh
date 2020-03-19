@@ -22,3 +22,6 @@ MOKEE_ROOT="${MY_DIR}/../../.."
 "./../../${VENDOR}/${DEVICE_COMMON}/extract-files.sh" "$@"
 
 BLOB_ROOT="${MOKEE_ROOT}/vendor/${VENDOR}/${DEVICE}/proprietary"
+
+# Fingerprint
+patchelf --replace-needed libc++.so libc++-v27.so "${BLOB_ROOT}/vendor/lib64/hw/swfingerprint.default.so"

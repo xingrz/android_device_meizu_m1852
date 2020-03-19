@@ -110,6 +110,18 @@ vendor/etc/camera/camxoverridesettings.txt
 # Camera - firmware
 vendor/firmware/CAMERA_ICP.elf
 
+# Fingerprint
+vendor/bin/hw/android.hardware.biometrics.fingerprint@2.1-service
+vendor/etc/init/android.hardware.biometrics.fingerprint@2.1-service.rc
+
+# Fingerprint - CDFinger
+vendor/lib64/hw/cdfinger.default.so
+vendor/lib64/hw/cdfinger.fingerprint.default.so
+
+# Fingerprint - Sunwave
+vendor/etc/sw_config.xml
+vendor/lib64/hw/swfingerprint.default.so
+
 # Graphics - firmware
 vendor/firmware/a225_pfp.fw
 vendor/firmware/a225_pm4.fw
