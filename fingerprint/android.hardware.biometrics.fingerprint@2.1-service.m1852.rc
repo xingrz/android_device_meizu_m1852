@@ -6,3 +6,8 @@ service vendor.fps_hal /vendor/bin/hw/android.hardware.biometrics.fingerprint@2.
     user system
     group system input uhid
     writepid /dev/cpuset/system-background/tasks
+
+on boot
+    chmod 666 /dev/fpsdev0
+    chmod 664 /dev/sunwave_fp
+    chown system system /dev/sunwave_fp

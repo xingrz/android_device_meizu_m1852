@@ -34,7 +34,10 @@ BiometricsFingerprint *BiometricsFingerprint::sInstance = nullptr;
 
 BiometricsFingerprint::BiometricsFingerprint() : mClientCallback(nullptr), mDevice(nullptr) {
     sInstance = this; // keep track of the most recent instance
-    mDevice = openHal();
+    mDevice = openHal("swfingerprint");
+    if (!mDevice) {
+        mDevice = openHal("cdfinger.fingerprint");
+    }
     if (!mDevice) {
         ALOGE("Can't open HAL module");
     }
@@ -203,11 +206,11 @@ IBiometricsFingerprint* BiometricsFingerprint::getInstance() {
     return sInstance;
 }
 
-fingerprint_device_t* BiometricsFingerprint::openHal() {
+fingerprint_device_t* BiometricsFingerprint::openHal(const char *name) {
     int err;
     const hw_module_t *hw_mdl = nullptr;
-    ALOGD("Opening fingerprint hal library...");
-    if (0 != (err = hw_get_module(FINGERPRINT_HARDWARE_MODULE_ID, &hw_mdl))) {
+    ALOGD("Opening fingerprint hal library %s...", name);
+    if (0 != (err = hw_get_module(name, &hw_mdl))) {
         ALOGE("Can't open fingerprint HW Module, error: %d", err);
         return nullptr;
     }
