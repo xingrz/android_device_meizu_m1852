@@ -1,0 +1,25 @@
+//
+// Copyright (C) 2020 The MoKee Open Source Project
+//
+// SPDX-License-Identifier: Apache-2.0
+//
+
+cc_binary {
+    name: "android.hardware.biometrics.fingerprint@2.1-service.m1852",
+    relative_install_path: "hw",
+    vendor: true,
+    init_rc: ["android.hardware.biometrics.fingerprint@2.1-service.m1852.rc"],
+    srcs: [
+        "BiometricsFingerprint.cpp",
+        "service.cpp",
+    ],
+    shared_libs: [
+        "libcutils",
+        "liblog",
+        "libhidlbase",
+        "libhidltransport",
+        "libhardware",
+        "libutils",
+        "android.hardware.biometrics.fingerprint@2.1",
+    ],
+}
